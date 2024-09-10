@@ -1,0 +1,97 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+:root {
+    --color-white: hsl(0, 0%, 100%);
+    --color-slate-300: hsl(212, 45%, 89%);
+    --color-slate-500: hsl(216, 15%, 48%);
+    --color-slate-900: hsl(218, 44%, 22%);
+
+    --font-family-base: "Outfit", sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --font-size-base: 15px;
+    --font-size-h1: 22px;
+
+    --spacing-small: 16px;
+    --spacing-medium: 24px;
+    --spacing-large: 40px;
+
+    --width-mobile: 320px;
+    --border-radius-small: 10px;
+    --border-radius-large: 20px;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-base);
+    color: var(--color-slate-900);
+    background-color: var(--color-slate-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.qr-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-inline-size: var(--width-mobile);
+    text-align: center;
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-white);
+    padding: var(--spacing-small);
+    padding-bottom: var(--spacing-large);
+    gap: var(--spacing-medium);
+}
+
+.qr-card-image {
+    display: block;
+    border-radius: var(--border-radius-small);
+}
+
+.qr-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.qr-card-title {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+}
+
+.qr-card-description {
+    color: var(--color-slate-500);
+}
