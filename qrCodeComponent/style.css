@@ -84,6 +84,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-small);
+    padding-inline: var(--spacing-small);
 }
 
 .qr-card-title {
