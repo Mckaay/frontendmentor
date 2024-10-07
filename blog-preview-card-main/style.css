@@ -33,28 +33,28 @@ p, h1, h2, h3, h4, h5, h6 {
     --font-weight-regular: 500;
     --font-weight-bold: 700;
     --font-weight-extra-bold: 800;
-    --font-size-preset: clamp(12px, 0.53vw + 12px, 14px);
-    --font-size-base: clamp(14px, 0.53vw + 12px, 16px);
-    --font-size-h1: clamp(20px, 0.53vw + 18px, 24px);
+    --font-size-preset: clamp(0.75rem, 0.53svw + 0.75rem, 0.875rem);
+    --font-size-base: clamp(0.875rem, 0.53svw + 0.75rem, 1rem);
+    --font-size-h1: clamp(1.25rem, 0.53svw + 1.125rem, 1.5rem);
 
     --color-white: #FFFFFF;
     --color-gray-500: #6B6B6B;
     --color-gray-950: #111111;
     --color-yellow: #F4D04E;
 
-    --spacing-50: 4px;
-    --spacing-100: 8px;
-    --spacing-150: 12px;
-    --spacing-200: 16px;
-    --spacing-300: 24px;
+    --spacing-50: 0.25rem;
+    --spacing-100: 0.5rem;
+    --spacing-150: 0.75rem;
+    --spacing-200: 1rem;
+    --spacing-300: 1.5rem;
 
-    --border-radius-large: 20px;
-    --border-radius-small: 10px;
+    --border-radius-large: 1.25rem;
+    --border-radius-small: 0.625rem;
 
-    --article-preview-max-width: 384px;
+    --article-preview-max-width: 24rem;
 
-    --author-image-height: 32px;
-    --author-image-width: 32px;
+    --author-image-height: 2rem;
+    --author-image-width: 2rem;
 }
 
 body {
@@ -65,8 +65,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
 }
 
 .articles {
@@ -84,9 +84,9 @@ body {
     gap: var(--spacing-300);
     max-width: var(--article-preview-max-width);
     padding: var(--spacing-300);
-    border: 1px solid var(--color-gray-950, #111);
+    border: 0.0625rem solid var(--color-gray-950, #111);
     border-radius: var(--border-radius-large);
-    box-shadow: 8px 8px 0 0 #000;
+    box-shadow: 0.5rem 0.5rem 0 0 #000;
 }
 
 .article-preview h1 {
@@ -96,15 +96,15 @@ body {
 
 .article-preview > svg {
     border-radius: var(--border-radius-small);
-    height: 200px;
+    height: 12.5rem;
 }
 
 .article-category {
     font-size: var(--font-size-preset);
     font-weight: var(--font-weight-extra-bold);
     background-color: var(--color-yellow);
-    padding: var(--spacing-50, 4px) var(--spacing-150, 12px);
-    border-radius: var(--spacing-50, 4px);
+    padding: var(--spacing-50) var(--spacing-150);
+    border-radius: var(--spacing-50);
 }
 
 .publish-date {
@@ -124,7 +124,7 @@ body {
 }
 
 .article-content-preview {
-    line-height: clamp(21px, 2.8vw, 24px);
+    line-height: clamp(1.3125rem, 2.8svw, 1.5rem);
 }
 
 .article-author {
