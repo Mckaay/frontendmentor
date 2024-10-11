@@ -1,0 +1,38 @@
+:root {
+    --color-white: #FFFFFF;
+    --color-rose-800: #7A284E;
+    --color-rose-50: #FFF7FB;
+    --color-stone-900: #312E2C;
+    --color-stone-600: #5F564D;
+    --color-stone-150: #E3DDD7;
+    --color-stone-100: #F3E5D7;
+    --color-brown-800: #854632;
+
+    --font-family-base: "Outfit", sans-serif;
+    --font-family-secondary: "Young Serif", serif;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-size-base: 1rem;
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 1.75rem;
+    --font-size-h3: 1.25rem;
+
+    --spacing-1600: 8rem;
+    --spacing-600: 3rem;
+    --spacing-500: 2.5rem;
+    --spacing-400: 2rem;
+    --spacing-300: 1.5rem;
+    --spacing-200: 1rem;
+    --spacing-150: 0.75rem;
+    --spacing-100: 0.5rem;
+
+    --border-radius-small: 0.75rem;
+    --border-radius-large: 1.5rem;
+
+    --max-tablet-width: 38.5rem;
+    --max-desktop-width: 46rem;
+
+    --padding-vertical-slope: 0.1562vw;
+    --padding-horizontal-slope: 0.0585vw;
+}

@@ -1,0 +1,184 @@
+body {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-base);
+    color: var(--color-stone-600);
+    min-width: 100svw;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-stone-100);
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: var(--font-family-secondary);
+    line-height: 100%;
+    font-weight: var(--font-weight-regular);
+}
+
+h1 {
+    color: var(--color-stone-900);
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    color: var(--color-brown-800);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-rose-800);
+    line-height: 100%;
+}
+
+.recipe {
+    background: var(--color-white);
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-400);
+        padding: var(--spacing-500) var(--spacing-400);
+    }
+
+    .estimated-time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-200);
+        background: var(--color-rose-50);
+        width: 100%;
+        padding: var(--spacing-300);
+        border-radius: var(--border-radius-small);
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-300);
+    }
+
+    .ingredients, .instructions, .nutrition {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-300);
+    }
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+ol {
+    counter-reset: my-awesome-counter;
+}
+
+li {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: var(--spacing-100);
+    }
+}
+
+ol li {
+    counter-increment: my-awesome-counter;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--spacing-400) * -1);
+        content: counter(my-awesome-counter) ". ";
+        color: var(--color-brown-800);
+        font-weight: var(--font-weight-bold);
+    }
+}
+
+ul li::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--spacing-400) * -1);
+    width: 0.25rem;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none"><g transform="translate(0,0)"><circle cx="2" cy="2" r="2" fill="%237A284E"/></g></svg>') no-repeat;
+    background-position: center;
+    background-size: 0.25rem 0.25rem;
+    content: '';
+}
+
+.line {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: var(--color-stone-150);
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    td {
+        font-weight: var(--font-weight-bold);
+        color: var(--color-brown-800);
+        padding-bottom: var(--spacing-150);
+        padding-right: var(--spacing-400);
+    }
+
+    tr {
+        border-bottom: 1px solid var(--color-stone-150);
+    }
+
+    th {
+        font-weight: var(--font-weight-regular);
+        padding: 0 var(--spacing-200) var(--spacing-150) var(--spacing-400);
+    }
+
+    tr:not(:first-child) th {
+        padding-top: var(--spacing-150);
+    }
+}
+
+@media (width > 375px) and (width < 768px) {
+    body {
+        padding: clamp(0rem, var(--padding-vertical-slope), var(--spacing-1600)) clamp(0rem, var(--padding-horizontal-slope), var(--spacing-600));
+    }
+
+    .recipe {
+        max-width: var(--max-tablet-width);
+        padding: var(--spacing-500);
+        border-radius: var(--border-radius-large);
+
+        .content-wrapper {
+            padding: var(--spacing-500) 0 0 0;
+        }
+
+        img {
+            border-radius: var(--border-radius-small);
+        }
+    }
+}
+
+@media (width >= 768px) {
+    body {
+        padding: var(--spacing-1600) var(--spacing-600);
+    }
+
+    .recipe {
+        max-width: var(--max-desktop-width);
+        padding: var(--spacing-500);
+        border-radius: var(--border-radius-large);
+
+        .content-wrapper {
+            padding: var(--spacing-500) 0 0 0;
+        }
+
+        img {
+            border-radius: var(--border-radius-small);
+        }
+    }
+}
