@@ -129,7 +129,7 @@ table {
         padding-right: var(--spacing-400);
     }
 
-    tr {
+    tr:not(:last-child) {
         border-bottom: 1px solid var(--color-stone-150);
     }
 
@@ -146,6 +146,10 @@ table {
 @media (width > 375px) and (width < 768px) {
     body {
         padding: clamp(0rem, var(--padding-vertical-slope), var(--spacing-1600)) clamp(0rem, var(--padding-horizontal-slope), var(--spacing-600));
+    }
+
+    h1 {
+        font-size: 2.5rem;
     }
 
     .recipe {
@@ -166,6 +170,10 @@ table {
 @media (width >= 768px) {
     body {
         padding: var(--spacing-1600) var(--spacing-600);
+    }
+
+    h1 {
+        font-size: 2.5rem;
     }
 
     .recipe {
