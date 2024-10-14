@@ -1,0 +1,41 @@
+:root {
+    --color-white: #FFFFFF;
+    --color-primary: #3D8168;
+    --color-secondary: #1A4032;
+    --color-background-cream: #F2EAE2;
+    --color-category: #6C7289;
+    --color-gunmetal: #1C232B;
+
+    --font-family-base: "Montserrat", sans-serif;
+    --font-family-secondary: "Fraunces", serif;
+    --font-weight-regular: 500;
+    --font-weight-bold: 700;
+
+    --font-size-small: 0.75rem;
+    --font-size-medium: 0.813rem;
+    --font-size-base: 0.875rem;
+
+    --font-size-h1: 2rem;
+    --spacing-1000: 10.938rem;
+    --spacing-400: 2rem;
+    --spacing-350: 1.75rem;
+    --spacing-300: 1.5rem;
+    --spacing-250: 1.25rem;
+    --spacing-225: 1.188rem;
+    --spacing-200: 1rem;
+    --spacing-150: 0.75rem;
+    --spacing-100: 0.688rem;
+    --spacing-25: 0.25rem;
+
+    --category-letter-spacing: 0.313rem;
+
+    --border-radius-small: 0.5rem;
+    --border-radius-normal: 0.625rem;
+
+    --shoping-icon-size: 1rem;
+
+    --max-desktop-width: 37.5rem;
+    --desktop-min-height: 28.125rem;
+
+    --sections-desktop-width: 18.75rem;
+}
