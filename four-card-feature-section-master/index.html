@@ -2,44 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Four card feature section</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  Reliable, efficient delivery
-  Powered by Technology
+<div class="wrapper">
+  <header>
+    <h1><span>Reliable, efficient delivery</span><br>Powered by Technology</h1>
+    <p class="description">Our Artificial Intelligence powered tools use millions of project data points to ensure that your project is successful</p>
+  </header>
+  <main>
+    <article class="grid-container">
+      <!-- Supervisor Card -->
+      <div class="card grid-item">
+        <h2>Supervisor</h2>
+        <p>Monitors activity to identify project roadblocks</p>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+            <!-- SVG paths for Supervisor icon -->
+            <path d="M50.6247 6.37529C42.1407 -2.14175 28.4465 -2.10826 19.9625 6.37529C12.8149 13.5233 11.5455 24.5787 16.8227 33.0962L14.5848 35.3671L13.3772 40.8396L17.1306 44.593L21.6659 42.4482L23.9038 40.1769C32.4213 45.4545 43.4771 44.2186 50.6247 37.0375C59.1418 28.5535 59.1083 14.8593 50.6247 6.37529Z" fill="#676E74"/>
+            <path d="M21.6659 42.4482L23.9038 40.1768C32.4213 45.4545 43.4767 44.2186 50.6247 37.0375C59.1418 28.5535 59.1083 14.8593 50.6247 6.37527L14.7688 42.2312L17.1302 44.593L21.6659 42.4482Z" fill="#474F54"/>
+            <path d="M48.2834 8.71665C44.9592 5.39203 40.3665 3.33594 35.2937 3.33594C25.148 3.33594 16.9232 11.5607 16.9232 21.7064C16.9232 26.7792 18.9793 31.3719 22.3035 34.6965C25.6281 38.0207 30.2208 40.0768 35.2937 40.0768C45.4393 40.0768 53.6641 31.852 53.6641 21.7064C53.6641 16.6336 51.608 12.0408 48.2834 8.71665Z" fill="#64E1DC"/>
+            <path d="M53.6641 21.7064C53.6641 16.6336 51.608 12.0408 48.2834 8.71664L22.3035 34.6965C25.6281 38.0207 30.2208 40.0768 35.2936 40.0768C45.4393 40.0768 53.6641 31.852 53.6641 21.7064Z" fill="#00C8C8"/>
+            <path d="M50.0876 20.8501C49.9237 20.5761 47.4336 16.4731 43.6032 13.3968C41.2605 11.5146 38.4178 10.0161 35.2936 10.0161C27.0623 10.0161 20.764 20.4083 20.4996 20.8501L19.9873 21.7064L20.4996 22.5626C20.6635 22.8371 23.1532 26.9401 26.9836 30.0164C29.3267 31.8981 32.1695 33.3967 35.2936 33.3967C43.5249 33.3967 49.8232 23.0045 50.0876 22.5626L50.5995 21.7064L50.0876 20.8501Z" fill="#EFEFF4"/>
+            <path d="M50.0877 22.5627L50.5996 21.7064L50.0877 20.8501C49.9238 20.5761 47.4337 16.4731 43.6033 13.3968L26.9836 30.0164C29.3268 31.8981 32.1695 33.3967 35.2937 33.3967C43.525 33.3967 49.8233 23.0045 50.0877 22.5627Z" fill="#DADAE5"/>
+            <path d="M38.8348 18.1656C37.9277 17.258 36.6748 16.6962 35.2936 16.6962C32.5309 16.6962 30.2834 18.9436 30.2834 21.7064C30.2834 23.088 30.8453 24.3404 31.7525 25.2476C32.66 26.1547 33.912 26.7166 35.2936 26.7166C38.0564 26.7166 40.3038 24.4691 40.3038 21.7064C40.3038 20.3252 39.742 19.0728 38.8348 18.1656Z" fill="#64E1DC"/>
+            <path d="M40.3038 21.7064C40.3038 20.3252 39.742 19.0728 38.8348 18.1656L31.7524 25.2476C32.6596 26.1547 33.912 26.7166 35.2936 26.7166C38.0564 26.7166 40.3038 24.4691 40.3038 21.7064Z" fill="#00C8C8"/>
+            <path d="M36.4743 20.5257C36.172 20.2234 35.7545 20.0364 35.2936 20.0364C34.3721 20.0364 33.6237 20.7849 33.6237 21.7064C33.6237 22.1673 33.8107 22.5848 34.1129 22.887C34.4151 23.1893 34.8326 23.3763 35.2936 23.3763C36.2151 23.3763 36.9635 22.6279 36.9635 21.7064C36.9635 21.2458 36.7765 20.8283 36.4743 20.5257Z" fill="#676E74"/>
+            <path d="M36.9635 21.7064C36.9635 21.2458 36.7765 20.8284 36.4743 20.5257L34.1129 22.8871C34.4152 23.1893 34.8326 23.3763 35.2936 23.3763C36.2151 23.3763 36.9635 22.6279 36.9635 21.7064Z" fill="#474F54"/>
+            <path d="M18.1091 38.8909L14.5849 35.3671L0 49.9189L3.54032 53.4597L7.08108 57L21.6659 42.4482L18.1091 38.8909Z" fill="#575C60"/>
+            <path d="M21.6659 42.4482L18.109 38.8909L3.54028 53.4597L7.08104 57L21.6659 42.4482Z" fill="#333637"/>
+          </svg>
+        </div>
+      </div> <!-- End of Supervisor Card -->
 
-  Our Artificial Intelligence powered tools use millions of project data points 
-  to ensure that your project is successful
+      <!-- Team Builder Card -->
+      <div class="card grid-item">
+        <h2>Team Builder</h2>
+        <p>Scans our talent network to create the optimal team for your project</p>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+            <!-- SVG paths for Team Builder icon -->
+            <path d="M57 12.8732V50.0909H0V12.8732L3.33984 9.5H53.6602L57 12.8732Z" fill="#EFEFF4"/>
+            <path d="M57 12.8732V50.0909H28.5V9.5H53.6602L57 12.8732Z" fill="#DADAE5"/>
+            <path d="M0 0H57V13.8182H0V0Z" fill="#474F54"/>
+            <path d="M28.5 0H57V13.8182H28.5V0Z" fill="#32393F"/>
+            <path d="M6.90906 5.18182H10.1909V8.63637H6.90906V5.18182Z" fill="#FF637B"/>
+            <path d="M13.4727 5.18182H16.7545V8.63637H13.4727V5.18182Z" fill="#FF637B"/>
+            <path d="M20.0364 5.18182H23.3182V8.63637H20.0364V5.18182Z" fill="#FF637B"/>
+            <path d="M40.5909 37.6247V57H30.5974V53.6956H27.2662V57H17.2727V37.6247L27.3994 29.3636H30.1645L40.5909 37.6247Z" fill="#FF637B"/>
+            <path d="M10.3636 19.8636H47.5V23.3182H10.3636V19.8636Z" fill="#DADAE5"/>
+            <path d="M28.5 19.8636H46.6364V23.3182H28.5V19.8636Z" fill="#C9C9D3"/>
+            <path d="M40.5909 37.6247V57H30.2273V53.6956H28.5V29.3636H29.7784L40.5909 37.6247Z" fill="#E63950"/>
+            <path d="M26.7727 40.5909H30.2273V44.0454H26.7727V40.5909Z" fill="#EFEFF4"/>
+            <path d="M28.5 40.5909H30.2273V44.0454H28.5V40.5909Z" fill="#DADAE5"/>
+            <path d="M44.9091 40.7722L42.7254 43.1818L28.9319 31.135L15.1383 43.1818L12.9546 40.7722L28.9319 26.7727L44.9091 40.7722Z" fill="#676E74"/>
+            <path d="M28.5 26.7727L44.9091 40.7722L42.6664 43.1818L28.5 31.135L28.5 26.7727Z" fill="#474F54"/>
+          </svg>
+        </div>
+      </div> <!-- End of Team Builder Card -->
 
-  Supervisor
-  Monitors activity to identify project roadblocks
+      <!-- Karma Card -->
+      <div class="card grid-item">
+        <h2>Karma</h2>
+        <p>Regularly evaluates our talent to ensure quality</p>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+            <!-- SVG paths for Karma icon -->
+            <path d="M23.4902 46.8691H33.5098V57H23.4902V46.8691Z" fill="#676E74"/>
+            <path d="M28.5 46.8691H33.5098V57H28.5V46.8691Z" fill="#333637"/>
+            <path d="M20.1504 41.8594H36.8496V50.209H20.1504V41.8594Z" fill="#4C545A"/>
+            <path d="M28.5 41.8594H36.8496V50.209H28.5V41.8594Z" fill="#52585C"/>
+            <path d="M40.089 32.7083C38.0186 34.4117 36.8496 36.8161 36.8496 39.321V41.8594H20.1504V39.321C20.1504 36.7826 19.048 34.4117 17.2115 32.9753C12.7027 29.4685 10.1309 24.1917 10.1309 18.4805C10.1309 12.9362 12.6023 7.72643 16.911 4.21916C20.2174 1.54729 24.2582 0 28.5 0C29.8025 0 31.1384 0.133507 32.4408 0.400955C39.655 1.90388 45.3327 7.92648 46.6021 15.2411C47.7376 21.9208 45.3327 28.4665 40.089 32.7083Z" fill="#FFDA2D"/>
+            <path d="M40.089 32.7083C38.0186 34.4117 36.8496 36.8161 36.8496 39.321V41.8594H28.5V0C29.8025 0 31.1384 0.133507 32.4408 0.400955C39.655 1.90388 45.3327 7.92648 46.6021 15.2411C47.7376 21.9208 45.3327 28.4665 40.089 32.7083Z" fill="#FDBF00"/>
+            <path d="M16.8105 40.1895H40.1895V43.5293H16.8105V40.1895Z" fill="#676E74"/>
+            <path d="M35.5855 9.0332L37.9469 11.3946L34.4035 14.9379L32.0421 12.5766L35.5855 9.0332Z" fill="#FF9100"/>
+            <path d="M22.5965 22.0221L24.9579 24.3835L21.4141 27.9273L19.0527 25.5659L22.5965 22.0221Z" fill="#FDBF00"/>
+            <path d="M26.8301 25.1602H30.1699V30.1699H26.8301V25.1602Z" fill="#FDBF00"/>
+            <path d="M34.4035 22.0221L37.9469 25.5659L35.5855 27.9273L32.0421 24.3835L34.4035 22.0221Z" fill="#FF9100"/>
+            <path d="M35.1797 16.8105H40.1895V20.1504H35.1797V16.8105Z" fill="#FF9100"/>
+            <path d="M21.4141 9.0332L24.9579 12.577L22.5965 14.9379L19.0527 11.3946L21.4141 9.0332Z" fill="#FDBF00"/>
+            <path d="M16.8105 16.8105H21.8203V20.1504H16.8105V16.8105Z" fill="#FDBF00"/>
+            <path d="M26.8301 6.79102H30.1699V11.8008H26.8301V6.79102Z" fill="#FDBF00"/>
+            <path d="M0 16.8105H6.79102V20.1504H0V16.8105Z" fill="#FFDA2D"/>
+            <path d="M5.86475 13.1902L0.743652 9.85039L2.59622 7.07153L7.71732 10.4114L5.86475 13.1902Z" fill="#FFDA2D"/>
+            <path d="M2.59622 29.8895L0.743652 27.1106L5.86475 23.7708L7.71732 26.5496L2.59622 29.8895Z" fill="#FFDA2D"/>
+            <path d="M50.209 16.8105H57V20.1504H50.209V16.8105Z" fill="#FDBF00"/>
+            <path d="M54.4038 29.8895L49.2827 26.5496L51.1353 23.7708L56.2564 27.1106L54.4038 29.8895Z" fill="#FDBF00"/>
+            <path d="M51.1353 13.1902L49.2827 10.4114L54.4038 7.07153L56.2564 9.85039L51.1353 13.1902Z" fill="#FDBF00"/>
+            <path d="M28.5 6.79102H30.1699V11.8008H28.5V6.79102Z" fill="#FF9100"/>
+            <path d="M28.5 25.1602H30.1699V30.1699H28.5V25.1602Z" fill="#FF9100"/>
+            <path d="M28.5 40.1895H40.1895V43.5293H28.5V40.1895Z" fill="#333637"/>
+            <path d="M28.5 10.1309C23.8912 10.1309 20.1504 13.8717 20.1504 18.4805C20.1504 23.0893 23.8912 26.8301 28.5 26.8301C33.1088 26.8301 36.8496 23.0893 36.8496 18.4805C36.8496 13.8717 33.1088 10.1309 28.5 10.1309Z" fill="#FDBF00"/>
+            <path d="M28.5 26.8301V10.1309C33.1088 10.1309 36.8496 13.8717 36.8496 18.4805C36.8496 23.0893 33.1088 26.8301 28.5 26.8301Z" fill="#FF9100"/>
+            <path d="M26.8301 16.8105H30.1699V20.1504H26.8301V16.8105Z" fill="#FFDA2D"/>
+            <path d="M28.5 16.8105H30.1699V20.1504H28.5V16.8105Z" fill="#FDBF00"/>
+          </svg>
+        </div>
+      </div> <!-- End of Karma Card -->
 
-  Team Builder
-  Scans our talent network to create the optimal team for your project
-
-  Karma
-  Regularly evaluates our talent to ensure quality
-
-  Calculator
-  Uses data from past projects to provide better delivery estimates
-
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
+      <!-- Calculator Card -->
+      <div class="card grid-item">
+        <h2>Calculator</h2>
+        <p>Uses data from past projects to provide better delivery estimates</p>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+            <!-- SVG paths for Calculator icon -->
+            <path d="M57 0V36.7383L53.6602 40.1895H3.33984L0 36.7383V0H57Z" fill="#474F54"/>
+            <path d="M57 0V36.7383L53.6602 40.1895H28.5V0H57Z" fill="#32393F"/>
+            <path d="M20.1504 45.3105H36.8496V55.3301H20.1504V45.3105Z" fill="#DADAE5"/>
+            <path d="M28.5 45.3105H36.8496V55.3301H28.5V45.3105Z" fill="#C9C9D3"/>
+            <path d="M0 36.7383H57V46.9805H0V36.7383Z" fill="#EFEFF4"/>
+            <path d="M28.5 36.7383H57V46.9805H28.5V36.7383Z" fill="#DADAE5"/>
+            <path d="M13.4707 53.6602H43.5293V57H13.4707V53.6602Z" fill="#EFEFF4"/>
+            <path d="M28.5 53.6602H43.5293V57H28.5V53.6602Z" fill="#DADAE5"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.79102 18.3691C6.79102 11.9243 12.0356 6.67969 18.4805 6.67969C24.9253 6.67969 30.1699 11.9243 30.1699 18.3691C30.1699 24.814 24.9253 30.0586 18.4805 30.0586C12.0356 30.0586 6.79102 24.814 6.79102 18.3691ZM13.4707 18.3691C13.4707 21.1315 15.7181 23.3789 18.4805 23.3789C21.2428 23.3789 23.4902 21.1315 23.4902 18.3691C23.4902 15.6068 21.2428 13.3594 18.4805 13.3594C15.7181 13.3594 13.4707 15.6068 13.4707 18.3691Z" fill="#549EF2"/>
+            <path d="M40.1895 6.67969H50.3203V10.0195H40.1895V6.67969Z" fill="#377FD2"/>
+            <path d="M33.5098 6.67969H36.8496V10.0195H33.5098V6.67969Z" fill="#377FD2"/>
+            <path d="M40.1895 20.0391H50.3203V23.3789H40.1895V20.0391Z" fill="#377FD2"/>
+            <path d="M33.5098 20.0391H36.8496V23.3789H33.5098V20.0391Z" fill="#377FD2"/>
+            <path d="M33.5098 13.3594H50.3203V16.6992H33.5098V13.3594Z" fill="#377FD2"/>
+            <path d="M33.5098 26.7188H50.3203V30.0586H33.5098V26.7188Z" fill="#377FD2"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+  </main>
+</div>
 </body>
 </html>

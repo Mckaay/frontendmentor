@@ -1,0 +1,46 @@
+:root {
+    --color-red: #EA5454;
+    --color-cyan: #44D3D2;
+    --color-orange: #FCAE4A;
+    --color-blue: #549EF2;
+    --color-white: #FFFFFF;
+
+    --color-very-dark-blue: #4D4F62;
+    --color-grayish-blue: #A3A5AE;
+    --color-very-light-gray: #FAFAFA;
+
+    --font-family-base: "Poppins", sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+
+    --font-size-medium: 0.813rem;
+    --font-size-base: 0.938rem;
+    --font-size-h1: clamp(1.5rem, 3vw + 0.75rem, 2.25rem);
+    --font-size-h2: 1.25rem;
+
+    --h1-letter-spacing: 0.01rem;
+    --p-letter-spacing: 0.006rem;
+    --description-letter-spacing: 0.007rem;
+    --line-height-large: 25px;
+    --line-height-large-1: 23px;
+
+    --header-padding-top: 85px;
+    --header-padding-bottom: 76px;
+    --header-padding-bottom-desktop: 64px;
+    --header-padding-top-desktop: 80px;
+
+    --spacing-400: 2rem;
+    --spacing-350: 1.875rem;
+    --spacing-325: 1.75rem;
+    --spacing-300: 1.5rem;
+    --spacing-200: 1rem;
+
+    --cards-box-shadow: 0 0.9375rem 1.875rem -0.6875rem #83A6D280;
+
+    --border-radius-normal: 0.5rem;
+
+    --card-icon-size: 3.563rem;
+    --card-max-width-desktop: 350px;
+    --header-max-width-desktop: 540px;
+}
