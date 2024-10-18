@@ -1,0 +1,27 @@
+.moderate-violet-bg {
+    background-color: var(--color-moderate-violet);
+}
+
+.light-gray-bg {
+    background-color: var(--color-light-gray);
+}
+
+.very-dark-grayish-blue-bg {
+    background-color: var(--color-very-dark-grayish-blue);
+}
+
+.very-dark-blackish-blue-bg {
+    background-color: var(--color-very-dark-blackish-blue);
+}
+
+.moderate-violet-bg {
+    background-color: var(--color-moderate-violet);
+}
+
+.light-grayish-blue-bg {
+    background-color: var(--color-light-grayish-blue);
+}
+
+.white-bg {
+    background-color: var(--color-white);
+}
