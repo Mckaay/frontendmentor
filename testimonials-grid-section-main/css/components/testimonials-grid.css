@@ -99,7 +99,7 @@ body {
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: var(--spacing-185);
         grid-row-gap: var(--spacing-150);
-        padding: var(--container-padding-top-desktop) 0 0;
+        padding: 0 0 0 0;
     }
 
     .testimonial {
