@@ -1,0 +1,48 @@
+:root {
+    --color-cyan-600: #4D96A9;
+    --color-cyan-300: #8FE3F9;
+    --color-purple-600: #855FB1;
+    --color-purple-300: #D9B8FF;
+    --color-slate-900: #28283D;
+    --color-slate-600: #87879D;
+    --color-slate-300: #D1D1DF;
+    --color-white: #FAFAFA;
+
+    --font-family-base: "Red Hat Display", sans-serif;
+    --font-size-base: 1rem;
+    --font-size-small: 0.75rem;
+    --font-size-light: 0.875rem;
+    --font-size-medium: 1.125rem;
+
+    --font-weight-regular: 500;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 900;
+
+    --line-height-110: 1.1;
+    --line-height-150: 1.5;
+
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.25rem;
+
+    --h1-desktop-size: 4rem;
+    --h1-tablet-size: 3rem;
+    --h1-mobile-size: 2.5rem;
+
+
+    --h2-desktop-size: 2.5rem;
+    --h2-tablet-size: 2.25rem;
+    --h2-mobile-size: 2rem;
+
+    --spacing-25: 0.25rem;
+    --spacing-50: 0.5rem;
+    --spacing-100: 1rem;
+    --spacing-150: 1.5rem;
+    --spacing-200: 2rem;
+    --spacing-250: 2.5rem;
+    --spacing-300: 3rem;
+    --spacing-350: 3.5rem;
+    --spacing-400: 4rem;
+    --spacing-450: 4.5rem;
+    --spacing-500: 5rem;
+    --spacing-700: 7rem;
+}

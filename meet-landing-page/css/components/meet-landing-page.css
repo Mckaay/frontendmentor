@@ -1,0 +1,42 @@
+@import "number.css";
+
+body {
+    font-family: var(--font-family-base), sans-serif;
+    font-weight: var(--font-weight-regular);
+    font-size: clamp(var(--font-size-base), 1.9vw, var(--font-size-medium));
+    color: var(--color-slate-600);
+    min-width: 100svw;
+    display: grid;
+    background: var(--color-white);
+    padding: 0;
+}
+
+h1,
+h2 {
+    line-height: var(--line-height-110);
+    font-weight: var(--font-weight-extra-bold);
+    color: var(--color-slate-900);
+}
+
+h1 {
+    font-size: clamp(var(--h1-mobile-size), 6.25vw, calc(var(--h1-desktop-size)));
+}
+
+h2 {
+    font-size: clamp(var(--h2-mobile-size), 4.688vw, var(--h2-desktop-size));
+}
+
+.subheading {
+    font-size: clamp(var(--font-size-small), 1.823vw, var(--font-size-base));
+    font-weight: var(--font-weight-extra-bold);
+    color: var(--color-cyan-600);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--line-height-110);
+}
+
+.number-wrapper:last-of-type {
+    position: relative;
+    margin-bottom: calc(var(--number-circle-size) / 2 * -1);
+    z-index: 1;
+}

@@ -1,0 +1,11 @@
+@import "../base/variables.css";
+@import "../base/utililities.css";
+
+nav {
+    padding-top: clamp(var(--spacing-300), 6.2vw, var(--spacing-500));
+    width: 100svw;
+
+    & .navbar-logo {
+        margin: auto;
+    }
+}

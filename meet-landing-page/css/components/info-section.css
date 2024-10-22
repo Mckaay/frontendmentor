@@ -1,0 +1,57 @@
+@import "../base/variables.css";
+@import "../base/utililities.css";
+
+.info-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+    padding: clamp(var(--spacing-200),10vw,var(--spacing-350))
+    var(--spacing-200) clamp(var(--spacing-400), 10vw, var(--spacing-450));
+
+
+    & .image-grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: clamp(var(--spacing-100), 3.125vw,var(--spacing-200));
+        margin: auto;
+        max-width: 1120px;
+
+        & > * {
+            border-radius: 0.5rem;
+        }
+
+        @media screen and (min-width: 700px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    & .description-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-100);
+        text-align: center;
+        margin: auto;
+
+        @media screen and (min-width: 600px) {
+            max-width: 504px;
+
+            & h2 {
+                width: 85%;
+                margin: auto;
+            }
+        }
+
+        @media screen and (min-width: 1100px) {
+            max-width: 544px;
+
+            & h2 {
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+        & p {
+            margin-top: var(--spacing-100);
+        }
+    }
+}

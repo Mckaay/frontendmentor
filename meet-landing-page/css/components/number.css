@@ -1,0 +1,26 @@
+.number-wrapper {
+    --number-circle-size: 3.5rem;
+    --line-height: 5rem;
+
+    display: grid;
+    place-items: center;
+    z-index: 3;
+
+    & .line-above-circle {
+        height: var(--line-height);
+        width: 1px;
+        background: var(--color-slate-300);
+    }
+
+    & .number-in-circle {
+        width: var(--number-circle-size);
+        height: var(--number-circle-size);
+        background-color: var(--color-white);
+        font-weight: var(--font-weight-extra-bold);
+        line-height: var(--line-height-150);
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1px solid var(--color-slate-300);
+    }
+}
