@@ -1,0 +1,42 @@
+<script setup>
+import Navbar from "@/components/Navbar.vue";
+import HomeView from "@/views/HomeView.vue";
+
+import {useThemeStore} from "@/stores/theme.js";
+
+const themeStore = useThemeStore();
+
+</script>
+
+<template>
+  <div class="body-wrapper" :class="{ dark: themeStore.isDark }">
+    <div class="container">
+      <Navbar/>
+      <RouterView/>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  div.dark {
+    background-color: var(--color-dark-navy);
+    color: var(--color-pure-white);
+  }
+
+  .body-wrapper {
+    width: 100svw;
+    height: 100svh;
+    padding-top: var(--spacing-100);
+    padding-inline: var(--spacing-150);
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-navy);
+  }
+
+  .container {
+    --desktop-container-max-width: 1157px;
+
+    max-width: var(--desktop-container-max-width);
+    max-height: 100svh;
+    margin: auto;
+  }
+</style>
