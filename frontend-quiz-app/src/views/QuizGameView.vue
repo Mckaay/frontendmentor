@@ -6,6 +6,8 @@ import PrimaryButton from "@/components/buttons/PrimaryButton.vue";
 import ItalicParagraph from "@/components/textComponents/ItalicParagraph.vue";
 import QuizQuestion from "@/components/quizComponents/QuizQuestion.vue";
 import QuizAnswerButton from "@/components/quizComponents/QuizAnswerButton.vue";
+import ProgressBar from "@/components/quizComponents/ProgressBar.vue";
+import ErrorMessage from "@/components/formComponents/ErrorMessage.vue";
 
 const route = useRoute()
 const quizStore = useQuizStore();
@@ -15,12 +17,20 @@ const selectedAnswerIndex = ref(null);
 const submittedAnswer = ref(false);
 const isCorrect = ref(false);
 const score = ref(0);
+const questionCounter = ref(1);
+const errorState = ref(false);
+const showResult = ref(false);
 
 const currentQuiz = computed(() => {
   return quizStore.quizzesArray.find((quiz) => {
     return quiz.id === parseInt(id);
   })
 });
+
+onMounted(() => {
+  quizStore.setCurrentQuizName(currentQuiz.value.title);
+  quizStore.setCurrentQuizIcon(currentQuiz.value.icon);
+})
 
 const currentQuizQuestions = computed(() => {
   return currentQuiz.value ? currentQuiz.value.questions : [];
@@ -40,7 +50,16 @@ const correctAnswerIndex = computed(() => {
   });
 });
 
+const totalQuestions = computed(() => {
+  return currentQuizQuestions.value.length;
+})
+
 const submit = () => {
+  if (selectedAnswerIndex.value === null) {
+    errorState.value = true;
+    return;
+  }
+
   submittedAnswer.value = true;
 
   if (selectedAnswerIndex.value === correctAnswerIndex.value) {
@@ -50,6 +69,7 @@ const submit = () => {
 }
 
 const selectAnswer = (index) => {
+  errorState.value = false;
   if (submittedAnswer.value) {
     return;
   }
@@ -57,8 +77,12 @@ const selectAnswer = (index) => {
   selectedAnswerIndex.value = index;
 }
 
-const goToNextQuesition = () => {
-
+const goToNextQuestion = () => {
+  submittedAnswer.value = false;
+  isCorrect.value = false;
+  selectedAnswerIndex.value = null;
+  currentQuestionIndex.value++;
+  questionCounter.value++;
 }
 
 </script>
@@ -66,9 +90,9 @@ const goToNextQuesition = () => {
 <template>
   <div class="flex-wrapper">
     <div class="question-wrapper">
-      <ItalicParagraph text="Question 1 of 10"/>
+      <ItalicParagraph :text="`Question ${questionCounter} of ${totalQuestions}`"/>
       <QuizQuestion :text="currentDisplayedQuestion"/>
-      <div class="progress-bar"></div>
+      <ProgressBar :width="(questionCounter / totalQuestions) * 100"/>
     </div>
     <div class="answers-wrapper">
       <QuizAnswerButton @click="selectAnswer(index)"
@@ -82,6 +106,7 @@ const goToNextQuesition = () => {
                         :text="answer"/>
       <PrimaryButton v-if="!submittedAnswer" @click="submit" text="Submit Answer"/>
       <PrimaryButton v-else @click="goToNextQuestion" text="Next Question"/>
+      <ErrorMessage v-if="errorState" message="Please select an answer"/>
     </div>
   </div>
 </template>
@@ -91,26 +116,6 @@ const goToNextQuesition = () => {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-75);
-  }
-
-  .progress-bar {
-    margin-top: var(--spacing-75);
-    position: relative;
-    width: 100%;
-    height: 16px;
-    background-color: var(--color-pure-white);
-    border-radius: var(--border-radius-medium);
-  }
-
-  .progress-bar::before {
-    position: absolute;
-    content: "";
-    width: calc(100% - 8px);
-    height: 8px;
-    border-radius: var(--border-radius-small);
-    left: 4px;
-    background-color: var(--color-purple);
-    transform: translateY(50%);
   }
 
   .answers-wrapper {

@@ -4,6 +4,16 @@ import quizzesData from "../database/data.json";
 
 export const useQuizStore = defineStore('quiz', () => {
     const quizzesArray = ref(quizzesData.quizzes);
+    const currentQuizName = ref('');
+    const currentQuizIcon = ref('');
 
-    return { quizzesArray};
+    function setCurrentQuizName(name) {
+        currentQuizName.value = name;
+    }
+
+    function setCurrentQuizIcon(iconPath) {
+        currentQuizIcon.value = iconPath;
+    }
+
+    return { quizzesArray, currentQuizName, currentQuizIcon, setCurrentQuizName, setCurrentQuizIcon };
 });
