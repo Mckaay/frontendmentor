@@ -23,14 +23,13 @@ watch(
 const containerJustifyContent = computed(() => {
   return quizStore.currentQuizName !== '' ? 'space-between' : 'flex-end';
 });
-
 </script>
 
 <template>
   <nav>
     <div class="container" :style="{justifyContent: containerJustifyContent }">
       <div v-if="quizStore.currentQuizName !== ''" class="quiz-header-container">
-        <QuizHeader quizIcon="quizStore.currentQuizIcon" quizTitle="quizStore.currentQuizName"/>
+        <QuizHeader :quizIcon="quizStore.currentQuizIcon" :quizTitle="quizStore.currentQuizName"/>
       </div>
       <div class="theme-container">
         <img v-if="themeStore.isDark" src="../assets/images/icon-sun-light.svg" height="14" width="16" alt="sun-icon">
@@ -64,20 +63,5 @@ const containerJustifyContent = computed(() => {
     display: flex;
     align-items: center;
     gap: var(--spacing-100);
-  }
-
-  .quiz-title {
-    font-size: var(--font-size-110);
-    color: var(--color-dark-navy);
-    font-weight: var(--font-weight-semi-bold);
-    line-height: 1;
-  }
-
-  .quiz-icon {
-    display: inline-block;
-    content: "";
-    background-size: 40px;
-    min-width: 40px;
-    min-height: 40px;
   }
 </style>

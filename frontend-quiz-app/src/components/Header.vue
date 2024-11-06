@@ -28,5 +28,4 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
     font-size: var(--font-size-250);
     line-height: 1;
   }
-
 </style>

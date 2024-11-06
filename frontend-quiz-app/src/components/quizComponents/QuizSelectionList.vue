@@ -6,7 +6,6 @@ import {computed} from "vue";
 const quizzes = computed(() => {
   return fileQuizzes.quizzes;
 })
-
 </script>
 
 <template>

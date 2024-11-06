@@ -8,7 +8,6 @@
   </div>
 </template>
 
-
 <style scoped>
   .quiz-question {
     font-size: var(--font-size-125);

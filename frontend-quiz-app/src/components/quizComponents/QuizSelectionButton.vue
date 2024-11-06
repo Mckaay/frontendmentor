@@ -1,10 +1,9 @@
 <script setup>
 import {useThemeStore} from "@/stores/theme.js";
 
-defineProps(['quiz'])
+const { quiz } = defineProps(['quiz'])
 const themeStore = useThemeStore();
 </script>
-
 
 <template>
   <RouterLink :to="`/quiz/${quiz.id}`">

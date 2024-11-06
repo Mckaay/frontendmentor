@@ -10,9 +10,11 @@ watch(checked, () => {
 });
 
 </script>
+
 <template>
   <input type="checkbox" v-model="checked">
 </template>
+
 <style scoped>
   input {
     position: relative;

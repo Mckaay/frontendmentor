@@ -2,7 +2,6 @@
   import {useThemeStore} from "@/stores/theme.js";
 
   const { text } = defineProps(['text']);
-
   const themeStore = useThemeStore();
 </script>
 

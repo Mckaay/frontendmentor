@@ -2,7 +2,6 @@
   import {useThemeStore} from "@/stores/theme.js";
 
   const { quizIcon, quizTitle } = defineProps(["quizIcon","quizTitle"]);
-
   const themeStore = useThemeStore();
 </script>
 

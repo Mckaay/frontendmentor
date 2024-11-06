@@ -25,6 +25,9 @@ const progressBarWidth = computed(() => {
   return ((quiz.value.questionIndex + 1) / quiz.value.totalQuestions) * 100;
 });
 
+quizStore.setCurrentQuizIcon(quiz.value.quizIcon);
+quizStore.setCurrentQuizName(quiz.value.quizTitle);
+
 const submitAnswer = () => {
   if (selectedOption.value === null) {
     errorState.value = true;
