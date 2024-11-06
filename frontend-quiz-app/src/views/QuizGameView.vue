@@ -8,107 +8,72 @@ import QuizQuestion from "@/components/quizComponents/QuizQuestion.vue";
 import QuizAnswerButton from "@/components/quizComponents/QuizAnswerButton.vue";
 import ProgressBar from "@/components/quizComponents/ProgressBar.vue";
 import ErrorMessage from "@/components/formComponents/ErrorMessage.vue";
+import Quiz from "@/services/quizService.js";
 
 const route = useRoute()
 const quizStore = useQuizStore();
-const id = parseInt(route.params.id);
-const currentQuestionIndex = ref(0);
-const selectedAnswerIndex = ref(null);
-const submittedAnswer = ref(false);
-const isCorrect = ref(false);
-const score = ref(0);
-const questionCounter = ref(1);
+const quizData = quizStore.quizzesArray.find((quiz) => quiz.id === parseInt(route.params.id));
+const quiz = ref(new Quiz(quizData));
+
+const answeredState = ref(false);
 const errorState = ref(false);
+const selectedOption = ref(null);
 const showResult = ref(false);
 
-const currentQuiz = computed(() => {
-  return quizStore.quizzesArray.find((quiz) => {
-    return quiz.id === parseInt(id);
-  })
+const progressBarWidth = computed(() => {
+  return ((quiz.value.questionIndex + 1) / quiz.value.totalQuestions) * 100;
 });
 
-onMounted(() => {
-  quizStore.setCurrentQuizName(currentQuiz.value.title);
-  quizStore.setCurrentQuizIcon(currentQuiz.value.icon);
-})
-
-const currentQuizQuestions = computed(() => {
-  return currentQuiz.value ? currentQuiz.value.questions : [];
-});
-
-const currentDisplayedQuestion = computed (() => {
-  return currentQuizQuestions.value[currentQuestionIndex.value].question;
-})
-
-const currentDisplayedQuestionAnswers = computed (() => {
-  return currentQuizQuestions.value[currentQuestionIndex.value].options;
-})
-
-const correctAnswerIndex = computed(() => {
-  return currentDisplayedQuestionAnswers.value.findIndex((element) => {
-    return element === currentQuizQuestions.value[currentQuestionIndex.value].answer;
-  });
-});
-
-const totalQuestions = computed(() => {
-  return currentQuizQuestions.value.length;
-})
-
-const submit = () => {
-  if (selectedAnswerIndex.value === null) {
+const submitAnswer = () => {
+  if (selectedOption.value === null) {
     errorState.value = true;
     return;
   }
 
-  submittedAnswer.value = true;
+  answeredState.value = true;
 
-  if (selectedAnswerIndex.value === correctAnswerIndex.value) {
-    isCorrect.value = true;
-    score.value++;
+  if (quiz.value.checkAnswerByIndex(selectedOption.value)) {
+    quiz.value.incrementScore();
   }
-}
-
-const selectAnswer = (index) => {
-  errorState.value = false;
-  if (submittedAnswer.value) {
-    return;
-  }
-
-  selectedAnswerIndex.value = index;
 }
 
 const goToNextQuestion = () => {
-  submittedAnswer.value = false;
-  isCorrect.value = false;
-  selectedAnswerIndex.value = null;
-  currentQuestionIndex.value++;
-  questionCounter.value++;
+  quiz.value.incrementQuestionIndex();
+
+  if (quiz.value.checkIfQuizShouldEnd()) {
+    showResult.value = true;
+  }
+
+  answeredState.value = false;
+  selectedOption.value = null;
 }
 
 </script>
 
 <template>
-  <div class="flex-wrapper">
+  <div v-if="!showResult" class="flex-wrapper">
     <div class="question-wrapper">
-      <ItalicParagraph :text="`Question ${questionCounter} of ${totalQuestions}`"/>
-      <QuizQuestion :text="currentDisplayedQuestion"/>
-      <ProgressBar :width="(questionCounter / totalQuestions) * 100"/>
+      <ItalicParagraph :text="`Question ${quiz.questionIndex + 1} of ${quiz.totalQuestions}`"/>
+      <QuizQuestion :text="quiz.currentQuestion" />
+      <ProgressBar :width="progressBarWidth"/>
     </div>
     <div class="answers-wrapper">
-      <QuizAnswerButton @click="selectAnswer(index)"
-                        :class=
-                            "{ selected: !submittedAnswer && index === selectedAnswerIndex,
-                            'picked-correct-answer': submittedAnswer && isCorrect && index === correctAnswerIndex,
-                            'picked-incorrect-answer': submittedAnswer && !isCorrect && index === selectedAnswerIndex,
-                            'correct-answer': submittedAnswer && !isCorrect && index === correctAnswerIndex
-      }"
-                        v-for="(answer, index) in currentDisplayedQuestionAnswers" :key="index" :label="String.fromCharCode(65 + index)"
-                        :text="answer"/>
-      <PrimaryButton v-if="!submittedAnswer" @click="submit" text="Submit Answer"/>
-      <PrimaryButton v-else @click="goToNextQuestion" text="Next Question"/>
+      <QuizAnswerButton
+                        v-for="(option, index) in quiz.currentOptions"
+                        :key="index"
+                        :label="String.fromCharCode(65 + index)"
+                        :text="option" :isCorrect="quiz.checkAnswer(option)"
+                        :name="'question-' + quiz.questionIndex"
+                        :value="index"
+                        :answeredState="answeredState"
+                        v-model="selectedOption"
+                        />
+      <PrimaryButton @click="goToNextQuestion" v-if="answeredState" text="Next Question"/>
+      <PrimaryButton @click="submitAnswer" v-else text="Submit Answer"/>
       <ErrorMessage v-if="errorState" message="Please select an answer"/>
     </div>
   </div>
+  <div v-else> {{ quiz.score }}</div>
 </template>
 
 <style scoped>

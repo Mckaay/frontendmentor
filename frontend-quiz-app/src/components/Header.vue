@@ -1,12 +1,14 @@
 <script setup>
 import ItalicParagraph from "@/components/textComponents/ItalicParagraph.vue";
+
+const { introText, title, italicText } = defineProps(["introText","title","italicText"])
 </script>
 
 <template>
   <header class="quiz-header">
-    <p class="intro-text">Welcome to the</p>
-    <h1 class="quiz-title">Frontend Quiz!</h1>
-    <ItalicParagraph text="Pick a subject to get started"/>
+    <p class="intro-text">{{ introText }}</p>
+    <h1 class="quiz-title">{{ title }}</h1>
+    <ItalicParagraph :text="italicText"/>
   </header>
 </template>
 

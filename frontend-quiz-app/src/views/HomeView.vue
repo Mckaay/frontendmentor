@@ -5,7 +5,7 @@ import QuizSelectionList from "@/components/quizComponents/QuizSelectionList.vue
 
 <template>
   <div class="grid-container">
-    <Header/>
+    <Header introText="Welcome to the" title="Frontend Quiz!" italicText="Pick a subject to get started"/>
     <main>
       <QuizSelectionList/>
     </main>

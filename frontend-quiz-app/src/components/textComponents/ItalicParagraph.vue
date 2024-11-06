@@ -1,9 +1,13 @@
 <script setup>
-  const props = defineProps(['text']);
+  import {useThemeStore} from "@/stores/theme.js";
+
+  const { text } = defineProps(['text']);
+
+  const themeStore = useThemeStore();
 </script>
 
 <template>
-  <p class="italic-paragraph">{{ props.text }}</p>
+  <p class="italic-paragraph" :class="{ dark: themeStore.isDark }">{{ text }}</p>
 </template>
 
 <style scoped>
@@ -12,5 +16,10 @@
     font-style: italic;
     color: var(--color-grey-navy);
     margin-top: var(--spacing-100);
+    line-height: 1.5;
+  }
+
+  .italic-paragraph.dark {
+    color: var(--color-light-bluish);
   }
 </style>

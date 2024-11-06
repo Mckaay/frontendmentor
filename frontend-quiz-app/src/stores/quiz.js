@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import quizzesData from "../database/data.json";
 
 export const useQuizStore = defineStore('quiz', () => {
-    const quizzesArray = ref(quizzesData.quizzes);
+    const quizzesArray = quizzesData.quizzes;
     const currentQuizName = ref('');
     const currentQuizIcon = ref('');
 

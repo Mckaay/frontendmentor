@@ -1,12 +1,12 @@
 <script setup>
   import {useThemeStore} from "@/stores/theme.js";
-  const themeStore = useThemeStore();
 
-  const props = defineProps(["width"]);
+  const { width } = defineProps(["width"]);
+  const themeStore = useThemeStore();
 </script>
 
 <template>
-  <div class="progress-bar" :class="{ dark: themeStore.isDark }" :style="{ '--progress-width': props.width + '%' }"></div>
+  <div class="progress-bar" :class="{ dark: themeStore.isDark }" :style="{ '--progress-width': width + '%' }"></div>
 </template>
 
 <style scoped>

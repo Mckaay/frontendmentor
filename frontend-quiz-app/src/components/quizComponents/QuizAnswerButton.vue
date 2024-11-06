@@ -1,98 +1,149 @@
 <script setup>
-  import {useThemeStore} from "@/stores/theme.js";
+import {computed, defineProps, ref} from 'vue';
+import { useThemeStore } from "@/stores/theme.js";
 
-  const props = defineProps(['label','text'])
-  const themeStore = useThemeStore();
+const { label, text, isCorrect, name, value, answeredState, modelValue } = defineProps(["label", "text", "isCorrect", "name","value", "answeredState" ,"modelValue"]);
+const themeStore = useThemeStore();
+const emit = defineEmits(['update:modelValue']);
+
+const handleChange = (event) => {
+  emit('update:modelValue', event.target.value);
+};
+
+const labelClasses = computed(() => {
+  return {
+    dark: themeStore.isDark,
+    'picked-correct-answer': answeredState && isCorrect && modelValue == value,
+    'picked-incorrect-answer': answeredState && !isCorrect && modelValue == value,
+    'correct-answer': answeredState && isCorrect && modelValue != value,
+  };
+});
 </script>
 
 <template>
-  <button :class="{ dark: themeStore.isDark }">
-    <div class="label">{{ props.label }}</div>
-    <div class="text"> {{ props.text }}</div>
-  </button>
+  <label :class="labelClasses">
+    <input
+        type="radio"
+        :name="name"
+        :value="value"
+        class="radio-input"
+        @change="handleChange"
+        :disabled="answeredState"
+        :checked="modelValue == value"
+    />
+    <div class="option">{{ label }}</div>
+    <div class="text">{{ text }}</div>
+  </label>
 </template>
 
 <style scoped>
-  button {
-    box-sizing: border-box;
-    font-size: var(--font-size-110);
-    font-weight: var(--font-weight-semi-bold);
-    color: var(--color-dark-navy);
-    border: 0;
-    display: flex;
-    height: min-content;
-    gap: var(--spacing-100);
-    align-items: center;
-    background-color: white;
-    padding: var(--spacing-75);
-    line-height: 1;
-    border-radius: var(--border-radius-medium);
-    cursor: pointer;
-  }
+label {
+  box-sizing: border-box;
+  font-size: var(--font-size-110);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--color-dark-navy);
+  border: 0;
+  display: flex;
+  gap: var(--spacing-100);
+  align-items: center;
+  cursor: pointer;
+  padding: var(--spacing-75);
+  line-height: 1;
+  border-radius: var(--border-radius-medium);
+  background-color: white;
+  user-select: none;
+}
 
-  button.dark {
+label.dark {
+  color: var(--color-pure-white);
+  background-color: var(--color-navy);
+
+  .text {
     color: var(--color-pure-white);
-    background-color: var(--color-navy);
   }
+}
 
-  button:hover {
-    .label {
-      color: var(--color-purple);
-      background-color: #F6E7FF;
-    }
+label:hover .label {
+  color: var(--color-purple);
+  background-color: #F6E7FF;
+}
+
+.radio-input {
+  display: none;
+}
+
+.option {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  min-width: 40px;
+  color: var(--color-grey-navy);
+  background-color: var(--color-light-gray);
+  width: 40px;
+}
+
+.text {
+  font-size: var(--font-size-110);
+  color: var(--color-dark-navy);
+}
+
+label:has(input:checked).picked-correct-answer {
+  outline: 3px solid var(--color-green);
+
+  .option {
+    background-color: var(--color-green);
+    color: var(--color-pure-white);
   }
+}
 
-  .label {
-    display: grid;
-    place-items: center;
-    height: 40px;
-    min-width: 40px;
-    color: var(--color-grey-navy);
-    background-color: var(--color-light-gray);
+label:has(input:checked) {
+  outline: 3px solid var(--color-purple);
+
+  .option {
+    background-color: var(--color-purple);
+    color: var(--color-pure-white);
   }
+}
 
-  button.selected {
-    outline: 3px solid var(--color-purple);
+label.picked-correct-answer::after {
+  display: block;
+  content: "";
+  background: url(../../assets/images/icon-correct.svg);
+  background-size: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  justify-self: flex-end;
+  margin-left: auto;
+}
 
-    .label {
-      background-color: var(--color-purple);
-      color: var(--color-pure-white);
-    }
+label.picked-incorrect-answer::after {
+  display: block;
+  content: "";
+  background: url(../../assets/images/icon-incorrect.svg);
+  background-size: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+label:has(input:checked).picked-incorrect-answer {
+  outline: 3px solid var(--color-red);
+
+  .option {
+    background-color: var(--color-red);
+    color: var(--color-pure-white);
   }
+}
 
-  button.correct-answer::after {
-    display: inline-block;
-    content: "";
-    background: url(../../assets/images/icon-correct.svg);
-    background-size: 40px;
-    min-width: 40px;
-    min-height: 40px;
-  }
-
-  button.picked-correct-answer {
-    outline: 3px solid var(--color-green);
-
-    .label {
-      background-color: var(--color-green);
-      color: var(--color-pure-white);
-    }
-  }
-
-  button.picked-correct-answer::after {
-    display: inline-block;
-    content: "";
-    background: url(../../assets/images/icon-correct.svg);
-    background-size: 40px;
-    min-width: 40px;
-    min-height: 40px;
-  }
-
-  button.picked-incorrect-answer {
-    outline: 3px solid var(--color-red);
-
-    .label {
-      background-color: var(--color-red);
-      color: var(--color-pure-white);
-    }
-  }
+label.correct-answer::after {
+  display: block;
+  content: "";
+  background: url(../../assets/images/icon-correct.svg);
+  background-size: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  justify-self: flex-end;
+  margin-left: auto;
+}
 </style>
