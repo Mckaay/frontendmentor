@@ -1,9 +1,9 @@
 <script setup>
-const props = defineProps(['text']);
+const { text } = defineProps(['text']);
 </script>
 
 <template>
-  <button class="primary-button">{{ props.text }}</button>
+  <button class="primary-button">{{ text }}</button>
 </template>
 
 <style scoped>

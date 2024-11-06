@@ -9,6 +9,7 @@ import QuizAnswerButton from "@/components/quizComponents/QuizAnswerButton.vue";
 import ProgressBar from "@/components/quizComponents/ProgressBar.vue";
 import ErrorMessage from "@/components/formComponents/ErrorMessage.vue";
 import Quiz from "@/services/quizService.js";
+import Result from "@/components/quizComponents/Result.vue";
 
 const route = useRoute()
 const quizStore = useQuizStore();
@@ -48,6 +49,9 @@ const goToNextQuestion = () => {
   selectedOption.value = null;
 }
 
+console.log(quiz.value.quizIcon);
+console.log(quiz.value.quizTitle);
+
 </script>
 
 <template>
@@ -73,7 +77,11 @@ const goToNextQuestion = () => {
       <ErrorMessage v-if="errorState" message="Please select an answer"/>
     </div>
   </div>
-  <div v-else> {{ quiz.score }}</div>
+  <Result :score="quiz.score"
+          :totalQuestions="quiz.totalQuestions"
+          :quizIcon="quiz.quizIcon"
+          :quizTitle="quiz.quizTitle"
+          v-else/>
 </template>
 
 <style scoped>

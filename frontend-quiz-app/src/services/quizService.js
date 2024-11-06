@@ -4,6 +4,8 @@ export default class Quiz {
         this.questionIndex = 0;
         this.score = 0;
         this.questions = quizData.questions;
+        this.quizTitle = quizData.title;
+        this.quizIcon = quizData.icon;
     }
 
     get currentQuestion() {

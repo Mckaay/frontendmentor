@@ -4,6 +4,7 @@ import {useThemeStore} from "@/stores/theme.js";
 import {useQuizStore} from "@/stores/quiz.js";
 import {computed, watch} from "vue";
 import {useRouter} from "vue-router";
+import QuizHeader from "@/components/quizComponents/QuizHeader.vue";
 
 const themeStore = useThemeStore();
 const quizStore = useQuizStore();
@@ -29,8 +30,7 @@ const containerJustifyContent = computed(() => {
   <nav>
     <div class="container" :style="{justifyContent: containerJustifyContent }">
       <div v-if="quizStore.currentQuizName !== ''" class="quiz-header-container">
-        <div class="quiz-icon" :style="{ 'background': `url(/src${quizStore.currentQuizIcon})` }"></div>
-        <div class="quiz-title">{{ quizStore.currentQuizName }}</div>
+        <QuizHeader quizIcon="quizStore.currentQuizIcon" quizTitle="quizStore.currentQuizName"/>
       </div>
       <div class="theme-container">
         <img v-if="themeStore.isDark" src="../assets/images/icon-sun-light.svg" height="14" width="16" alt="sun-icon">

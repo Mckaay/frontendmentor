@@ -7,7 +7,7 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
 <template>
   <header class="quiz-header">
     <p class="intro-text">{{ introText }}</p>
-    <h1 class="quiz-title">{{ title }}</h1>
+    <h1 class="title">{{ title }}</h1>
     <ItalicParagraph :text="italicText"/>
   </header>
 </template>
@@ -24,7 +24,8 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
     margin-bottom: var(--spacing-50);
   }
 
-  .quiz-title {
+  .title {
+    font-size: var(--font-size-250);
     line-height: 1;
   }
 
