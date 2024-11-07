@@ -34,6 +34,17 @@
       gap: var(--spacing-200);
       padding-top: unset;
     }
+
+    @media screen and (min-width: 1268px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-200);
+      padding-top: var(--spacing-530);
+
+      .primary-button {
+        grid-column: 2 / -1;
+      }
+    }
   }
 
   .result-wrapper {
@@ -50,6 +61,10 @@
       margin-top: var(--spacing-200);
       padding: var(--spacing-300);
       gap: var(--spacing-250);
+    }
+
+    @media screen and (min-width: 1268px) {
+      margin-top: 0;
     }
   }
 

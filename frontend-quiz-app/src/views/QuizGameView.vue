@@ -72,7 +72,7 @@ const restartGame = () => {
 </script>
 
 <template>
-  <div v-if="!showResult" class="flex-wrapper">
+  <div v-if="!showResult" class="grid-container">
     <div class="question-wrapper">
       <ItalicParagraph :text="`Question ${quiz.questionIndex + 1} of ${quiz.totalQuestions}`"/>
       <QuizQuestion :text="quiz.currentQuestion" />
@@ -102,6 +102,16 @@ const restartGame = () => {
 </template>
 
 <style scoped>
+  .grid-container {
+    display: grid;
+
+    @media screen and (min-width: 1268px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-200);
+      padding-top: var(--spacing-530);
+    }
+  }
+
   .question-wrapper {
     display: flex;
     flex-direction: column;
@@ -110,6 +120,20 @@ const restartGame = () => {
     @media screen and (min-width: 768px) {
       padding-top: var(--spacing-215);
       gap: var(--spacing-150);
+    }
+
+    @media screen and (min-width: 1268px) {
+      max-width: 468px;
+      padding-top: 0;
+      gap: var(--spacing-175);
+
+      .progress-bar {
+        margin-top: var(--spacing-600);
+      }
+
+      .italic-paragraph {
+        margin-top: 0;
+      }
     }
   }
 
@@ -123,6 +147,11 @@ const restartGame = () => {
     @media screen and (min-width: 768px) {
       gap: var(--spacing-150);
       padding-top: var(--spacing-400);
+    }
+
+    @media screen and (min-width: 1268px) {
+      max-width: 564px;
+      padding-top: 0;
     }
   }
 </style>

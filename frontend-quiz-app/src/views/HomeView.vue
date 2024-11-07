@@ -16,5 +16,10 @@ import QuizSelectionList from "@/components/quizComponents/QuizSelectionList.vue
   .grid-container {
     display: grid;
     gap: var(--spacing-250);
+
+    @media screen and (min-width: 1269px) {
+      padding-top: var(--spacing-600);
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>

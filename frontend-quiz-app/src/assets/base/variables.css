@@ -37,6 +37,7 @@
     --spacing-50: 0.5rem;
     --spacing-75: 0.75rem;
     --spacing-100: 1rem;
+    --spacing-125: 1.25rem;
     --spacing-150: 1.5rem;
     --spacing-175: 1.75rem;
     --spacing-200: 2rem;
@@ -47,6 +48,8 @@
     --spacing-400: 4rem;
     --spacing-450: 4.5rem;
     --spacing-500: 5rem;
+    --spacing-530: 5.3rem;
+    --spacing-600: 6rem;
     --spacing-700: 7rem;
 
     --border-radius-small: 0.25rem;

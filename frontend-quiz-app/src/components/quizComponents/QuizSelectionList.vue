@@ -19,5 +19,10 @@ const quizzes = computed(() => {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-75);
+
+    @media (min-width: 768px) {
+      gap: var(--spacing-150);
+
+    }
   }
 </style>

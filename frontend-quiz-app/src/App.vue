@@ -1,11 +1,8 @@
 <script setup>
 import Navbar from "@/components/Navbar.vue";
-import HomeView from "@/views/HomeView.vue";
-
 import {useThemeStore} from "@/stores/theme.js";
 
 const themeStore = useThemeStore();
-
 </script>
 
 <template>
@@ -35,10 +32,20 @@ const themeStore = useThemeStore();
       padding-top: var(--spacing-250);
       padding-inline: var(--spacing-400);
     }
+
+    @media screen and (min-width: 1268px) {
+      padding-top: var(--spacing-600);
+    }
+  }
+
+  .body-wrapper:has(.quiz-header-container) {
+    @media screen and (min-width: 1268px) {
+      padding-top: var(--spacing-530);
+    }
   }
 
   .container {
-    --desktop-container-max-width: 1157px;
+    --desktop-container-max-width: 1160px;
 
     max-width: var(--desktop-container-max-width);
     max-height: 100svh;

@@ -8,7 +8,7 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
   <header class="quiz-header">
     <p class="intro-text">{{ introText }}</p>
     <h1 class="title">{{ title }}</h1>
-    <ItalicParagraph :text="italicText"/>
+    <ItalicParagraph class="italic" :text="italicText"/>
   </header>
 </template>
 
@@ -18,6 +18,16 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
 
     @media screen and (min-width: 768px) {
       padding-top: var(--spacing-300);
+    }
+
+    @media screen and (min-width: 1268px) {
+      max-width: 460px;
+      padding-top: 0;
+
+
+      .italic {
+        margin-top: var(--spacing-300);
+      }
     }
   }
 
@@ -34,6 +44,7 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
 
   .title {
     font-size: var(--font-size-250);
+    font-weight: var(--font-weight-semi-bold);
     line-height: 1;
 
     @media screen and (min-width: 768px) {
