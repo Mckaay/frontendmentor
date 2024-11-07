@@ -30,6 +30,11 @@ const themeStore = useThemeStore();
     padding-inline: var(--spacing-150);
     background-color: var(--color-light-gray);
     color: var(--color-dark-navy);
+
+    @media screen and (min-width: 768px) {
+      padding-top: var(--spacing-250);
+      padding-inline: var(--spacing-400);
+    }
   }
 
   .container {

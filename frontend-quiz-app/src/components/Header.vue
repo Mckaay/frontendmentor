@@ -15,6 +15,10 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
 <style scoped>
   .quiz-header {
     padding-top: var(--spacing-200);
+
+    @media screen and (min-width: 768px) {
+      padding-top: var(--spacing-300);
+    }
   }
 
   .intro-text {
@@ -22,10 +26,18 @@ const { introText, title, italicText } = defineProps(["introText","title","itali
     font-weight: var(--font-weight-light);
     line-height: 1;
     margin-bottom: var(--spacing-50);
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-400);
+    }
   }
 
   .title {
     font-size: var(--font-size-250);
     line-height: 1;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-400);
+    }
   }
 </style>

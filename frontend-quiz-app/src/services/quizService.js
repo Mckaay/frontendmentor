@@ -48,4 +48,12 @@ export default class Quiz {
         return this.questionIndex >= this.totalQuestions;
     }
 
+    checkIfLastQuestion () {
+        return this.questionIndex === (this.totalQuestions -1);
+    }
+
+    restartQuiz () {
+        this.questionIndex = 0;
+    }
+
 }

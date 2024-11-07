@@ -52,6 +52,12 @@ const labelClasses = computed(() => {
     border-radius: var(--border-radius-medium);
     background-color: white;
     user-select: none;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-175);
+      gap: var(--spacing-200);
+      border-radius: var(--border-radius-extra-large);
+    }
   }
 
   label.dark {
@@ -66,25 +72,6 @@ const labelClasses = computed(() => {
   label:hover .label {
     color: var(--color-purple);
     background-color: #F6E7FF;
-  }
-
-  .radio-input {
-    display: none;
-  }
-
-  .option {
-    display: grid;
-    place-items: center;
-    height: 40px;
-    min-width: 40px;
-    color: var(--color-grey-navy);
-    background-color: var(--color-light-gray);
-    width: 40px;
-  }
-
-  .text {
-    font-size: var(--font-size-110);
-    color: var(--color-dark-navy);
   }
 
   label:has(input:checked).picked-correct-answer {
@@ -145,5 +132,28 @@ const labelClasses = computed(() => {
     min-height: 40px;
     justify-self: flex-end;
     margin-left: auto;
+  }
+
+  .radio-input {
+    display: none;
+  }
+
+  .option {
+    display: grid;
+    place-items: center;
+    min-height: 40px;
+    min-width: 40px;
+    color: var(--color-grey-navy);
+    background-color: var(--color-light-gray);
+
+    @media screen and (min-width: 768px) {
+      min-height: 56px;
+      min-width: 56px;
+      border-radius: var(--border-radius-medium);
+    }
+  }
+
+  .text {
+    color: var(--color-dark-navy);
   }
 </style>

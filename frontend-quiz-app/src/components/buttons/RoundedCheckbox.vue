@@ -25,6 +25,11 @@ watch(checked, () => {
     background-color: var(--color-purple);
     border-radius: var(--border-radius-large);
     cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      width: 48px;
+      height: 28px;
+    }
   }
 
   input::before {
@@ -34,6 +39,11 @@ watch(checked, () => {
     height: 12px;
     background: var(--color-pure-white);
     border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   input:checked::before  {

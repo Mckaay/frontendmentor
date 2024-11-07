@@ -28,6 +28,8 @@
     --font-size-300: 3rem;
     --font-size-400: 4rem;
     --font-size-550: 5.5rem;
+    --font-size-900: 9rem;
+
 
     --line-height-large: 1.5;
 
@@ -38,6 +40,7 @@
     --spacing-150: 1.5rem;
     --spacing-175: 1.75rem;
     --spacing-200: 2rem;
+    --spacing-215: 2.125rem;
     --spacing-250: 2.5rem;
     --spacing-300: 3rem;
     --spacing-350: 3.5rem;

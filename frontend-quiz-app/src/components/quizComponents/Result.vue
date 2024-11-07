@@ -6,6 +6,7 @@
 
   const themeStore = useThemeStore();
   const { score, totalQuestions, quizIcon, quizTitle } = defineProps(["score","totalQuestions","quizIcon","quizTitle"]);
+  defineEmits(["restartGame"])
 </script>
 
 <template>
@@ -18,7 +19,7 @@
         <div class="max-score">out of {{ totalQuestions }}</div>
       </div>
     </div>
-    <PrimaryButton text="Play Again"/>
+    <PrimaryButton  @click="$emit('restartGame')" text="Play Again"/>
   </div>
 </template>
 
@@ -28,6 +29,11 @@
     flex-direction: column;
     gap: var(--spacing-75);
     padding-top: var(--spacing-50);
+
+    @media screen and (min-width: 768px) {
+      gap: var(--spacing-200);
+      padding-top: unset;
+    }
   }
 
   .result-wrapper {
@@ -38,6 +44,13 @@
     padding: var(--spacing-200);
     background-color: var(--color-pure-white);
     border-radius: var(--border-radius-medium);
+    margin-top: var(--spacing-175);
+
+    @media screen and (min-width: 768px) {
+      margin-top: var(--spacing-200);
+      padding: var(--spacing-300);
+      gap: var(--spacing-250);
+    }
   }
 
   .result-wrapper.dark {
@@ -56,14 +69,14 @@
     align-items: center;
   }
 
-  .result-wrapper {
-    margin-top: var(--spacing-175);
-  }
-
   .score {
     font-size: var(--font-size-550);
     font-weight: var(--font-weight-semi-bold);
     line-height: 1;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-900);
+    }
   }
 
   .max-score {
@@ -71,5 +84,10 @@
     font-weight: var(--font-weight-regular);
     color: var(--color-grey-navy);
     line-height: 1;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-150);
+
+    }
   }
 </style>

@@ -16,6 +16,10 @@
     color: var(--color-grey-navy);
     margin-top: var(--spacing-100);
     line-height: 1.5;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-125);
+    }
   }
 
   .italic-paragraph.dark {

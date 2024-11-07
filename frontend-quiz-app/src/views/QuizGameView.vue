@@ -1,7 +1,7 @@
 <script setup>
 import {useRoute} from "vue-router";
 import {useQuizStore} from "@/stores/quiz.js";
-import {computed, onBeforeMount, onMounted, ref} from "vue";
+import {computed, ref} from "vue";
 import PrimaryButton from "@/components/buttons/PrimaryButton.vue";
 import ItalicParagraph from "@/components/textComponents/ItalicParagraph.vue";
 import QuizQuestion from "@/components/quizComponents/QuizQuestion.vue";
@@ -28,17 +28,30 @@ const progressBarWidth = computed(() => {
 quizStore.setCurrentQuizIcon(quiz.value.quizIcon);
 quizStore.setCurrentQuizName(quiz.value.quizTitle);
 
+const buttonText = computed(() => {
+  if (answeredState.value && quiz.value.checkIfLastQuestion()) {
+    return 'Show Result';
+  }
+
+  if (answeredState.value) {
+    return 'Next Question';
+  }
+
+  return 'Submit Answer';
+});
+
 const submitAnswer = () => {
   if (selectedOption.value === null) {
     errorState.value = true;
     return;
   }
 
-  answeredState.value = true;
-
   if (quiz.value.checkAnswerByIndex(selectedOption.value)) {
     quiz.value.incrementScore();
   }
+
+  answeredState.value = true;
+  errorState.value = false;
 }
 
 const goToNextQuestion = () => {
@@ -52,9 +65,10 @@ const goToNextQuestion = () => {
   selectedOption.value = null;
 }
 
-console.log(quiz.value.quizIcon);
-console.log(quiz.value.quizTitle);
-
+const restartGame = () => {
+  showResult.value = false;
+  quiz.value.restartQuiz();
+}
 </script>
 
 <template>
@@ -75,12 +89,12 @@ console.log(quiz.value.quizTitle);
                         :answeredState="answeredState"
                         v-model="selectedOption"
                         />
-      <PrimaryButton @click="goToNextQuestion" v-if="answeredState" text="Next Question"/>
-      <PrimaryButton @click="submitAnswer" v-else text="Submit Answer"/>
+      <PrimaryButton @click="answeredState ? goToNextQuestion() : submitAnswer()" :text="buttonText"/>
       <ErrorMessage v-if="errorState" message="Please select an answer"/>
     </div>
   </div>
-  <Result :score="quiz.score"
+  <Result @restartGame="restartGame"
+          :score="quiz.score"
           :totalQuestions="quiz.totalQuestions"
           :quizIcon="quiz.quizIcon"
           :quizTitle="quiz.quizTitle"
@@ -92,6 +106,11 @@ console.log(quiz.value.quizTitle);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-75);
+
+    @media screen and (min-width: 768px) {
+      padding-top: var(--spacing-215);
+      gap: var(--spacing-150);
+    }
   }
 
   .answers-wrapper {
@@ -99,5 +118,11 @@ console.log(quiz.value.quizTitle);
     flex-direction: column;
     gap: var(--spacing-75);
     padding-top: var(--spacing-250);
+
+
+    @media screen and (min-width: 768px) {
+      gap: var(--spacing-150);
+      padding-top: var(--spacing-400);
+    }
   }
 </style>

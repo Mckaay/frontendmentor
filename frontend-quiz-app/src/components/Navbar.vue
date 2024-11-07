@@ -57,6 +57,20 @@ const containerJustifyContent = computed(() => {
     display: flex;
     align-items: center;
     gap: var(--spacing-50);
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
+
+    @media screen and (min-width: 768px) {
+      gap: var(--spacing-100);
+
+      img {
+        height: 24px;
+        width: 24px;
+      }
+    }
   }
 
   .quiz-header-container {

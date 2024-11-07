@@ -19,6 +19,10 @@
     color: var(--color-red);
     line-height: 1;
     text-align: center;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-150);
+    }
   }
 
   .error-message.dark {
